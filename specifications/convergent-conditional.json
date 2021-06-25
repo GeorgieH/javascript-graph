@@ -1,0 +1,30 @@
+{
+  "pages": [
+    {
+      "full_width_page": {
+        "unique_reference": "page-1",
+        "next_page": {
+          "option-1": "page-2",
+          "option-2": "page-3"
+        }
+      }
+    },
+    {
+      "full_width_page": {
+        "unique_reference": "page-2",
+        "next_page": "page-4"
+      }
+    },
+    {
+      "full_width_page": {
+        "unique_reference": "page-3",
+        "next_page": "page-4"
+      }
+    },
+    {
+      "full_width_page": {
+        "unique_reference": "page-4"
+      }
+    }
+  ]
+}
