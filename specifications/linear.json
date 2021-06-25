@@ -1,0 +1,15 @@
+{
+  "pages": [
+    {
+      "full_width_page": {
+        "unique_reference": "page-1",
+        "next_page": "page-2"
+      }
+    },
+    {
+      "full_width_page": {
+        "unique_reference": "page-2"
+      }
+    }
+  ]
+}

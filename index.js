@@ -4,7 +4,12 @@ const TreeNode = require('./framework/TreeNode');
 
 // const specification = require('./specifications/non-convergent-conditional.json');
 // const specification = require('./specifications/convergent-conditional.json');
-const specification = require('./specifications/non-convergent-conditional-task-list.json');
+// const specification = require('./specifications/non-convergent-conditional-task-list.json');
+// const specification = require('./specifications/non-convergent-conditional-circular-task-list.json');
+// const specification = require('./specifications/non-convergent-conditional-nested.json');
+const specification = require('./specifications/convergent-conditional-nested.json');
+// const specification = require('./specifications/convergent-conditional-task-list.json');
+// const specification = require('./specifications/linear.json');
 
 const entry = specification.pages[0];
 const [type, definition] = Object.entries(entry)[0];

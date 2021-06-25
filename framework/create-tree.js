@@ -15,7 +15,12 @@ function getTaskList(page) {
 }
 
 module.exports = function createTree(specification, node) {
-  function addNode(node, ref) {
+  function addNode(specification, node, ref) {
+    if (node.parent) {
+      if (node.parent.value.definition.unique_reference === ref) {
+        return;
+      }
+    }
     const p = findPage(specification, ref);
     const n = new TreeNode(p);
     node.addChild(n);
@@ -25,16 +30,16 @@ module.exports = function createTree(specification, node) {
   const taskList = getTaskList(page);
   if (taskList) {
     taskList.definition.task_linked_page_refs.forEach((ref) => {
-      addNode(node, ref);
+      addNode(specification, node, ref);
     });
   }
   const { next_page } = page.definition;
   if (next_page) {
     if (typeof next_page === 'string') {
-      addNode(node, next_page);
+      addNode(specification, node, next_page);
     } else {
       Object.values(next_page).forEach((ref) => {
-        addNode(node, ref);
+        addNode(specification, node, ref);
       });
     }
   }
