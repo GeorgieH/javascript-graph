@@ -1,12 +1,12 @@
-module.exports = class TreeNode {
+module.exports = class GraphNode {
   constructor(value) {
     this.children = [];
-    this.parent = null;
+    this.parents = [];
     this.value = value;
   }
 
   addChild(node) {
-    node.parent = this;
+    node.parents.push(this);
     this.children.push(node);
   }
 }

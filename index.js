@@ -1,6 +1,6 @@
-const createTree = require('./framework/create-tree');
+const createGraph = require('./framework/create-graph');
 const traverse = require('./framework/traverse');
-const TreeNode = require('./framework/TreeNode');
+const GraphNode = require('./framework/GraphNode');
 
 // const specification = require('./specifications/non-convergent-conditional.json');
 // const specification = require('./specifications/convergent-conditional.json');
@@ -13,9 +13,9 @@ const specification = require('./specifications/convergent-conditional-nested.js
 
 const entry = specification.pages[0];
 const [type, definition] = Object.entries(entry)[0];
-const root = new TreeNode({ type, definition, index: 0 });
+const root = new GraphNode({ type, definition, index: 0 });
 
-createTree(specification, root);
+createGraph(specification, root);
 
 traverse(root, 0, (page, depth) => {
   let prefix = '';

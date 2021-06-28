@@ -1,5 +1,5 @@
 const findPage = require('./find-page');
-const TreeNode = require('./TreeNode');
+const GraphNode = require('./GraphNode');
 
 function getTaskList(page) {
   const { main_content } = page.definition;
@@ -14,7 +14,7 @@ function getTaskList(page) {
   return null;
 }
 
-module.exports = function createTree(specification, node) {
+module.exports = function createGraph(specification, node) {
   function addNode(specification, node, ref) {
     if (node.parent) {
       if (node.parent.value.definition.unique_reference === ref) {
@@ -22,9 +22,9 @@ module.exports = function createTree(specification, node) {
       }
     }
     const p = findPage(specification, ref);
-    const n = new TreeNode(p);
+    const n = new GraphNode(p);
     node.addChild(n);
-    createTree(specification, n);
+    createGraph(specification, n);
   }
   const page = node.value;
   const taskList = getTaskList(page);
